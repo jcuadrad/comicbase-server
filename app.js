@@ -15,7 +15,7 @@ const app = express();
 
 // Connect Mongoose database
 mongoose.Promise = Promise;
-mongoose.connect('mongodb://localhost/melode', {
+mongoose.connect('mongodb://localhost/mern-backend', {
   keepAlive: true,
   reconnectTries: Number.MAX_VALUE,
   useMongoClient: true
