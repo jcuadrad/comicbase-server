@@ -6,7 +6,10 @@ const Comic = require('../models/Comic').Comic;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.send({ title: 'Express' });
+  Comic.find({}, function(err, comics) {
+
+    res.status(200).json(comics);  
+  });
 });
 
 router.post('/', (req, res, next) => {
