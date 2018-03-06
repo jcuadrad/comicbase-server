@@ -23,7 +23,7 @@ mongoose.connect('mongodb://localhost/mern-backend', {
 // Setup CORS
 app.use(cors({
   credentials: true,
-  origin: [process.env.CLIENT_URL]
+  origin: ['http://localhost:3006']
   })
 );
 
