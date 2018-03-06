@@ -17,8 +17,7 @@ const app = express();
 mongoose.Promise = Promise;
 mongoose.connect('mongodb://localhost/mern-backend', {
   keepAlive: true,
-  reconnectTries: Number.MAX_VALUE,
-  useMongoClient: true
+  reconnectTries: Number.MAX_VALUE
 });
 
 // Setup CORS

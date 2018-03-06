@@ -6,7 +6,7 @@ const Comic = require('../models/Comic').Comic;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.send({ title: 'Express' });
 });
 
 router.post('/', (req, res, next) => {
@@ -25,9 +25,6 @@ router.post('/', (req, res, next) => {
     } else {
       res.status(200).json({status: 'Saved!'})
     }
-  })
-  .catch(err => {
-    next(err);
   })
 })
 
