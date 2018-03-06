@@ -13,13 +13,17 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', (req, res, next) => {
+  String.prototype.capitalize = function(lower) {
+    return (lower ? this.toLowerCase() : this).replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+  };
+
   const newComic = new Comic({
-    name: req.body.name,
-    writer: req.body.writer,
-    artist: req.body.artist,
-    publisher: req.body.publisher,
+    name: req.body.name.capitalize(true),
+    writer: req.body.writer.capitalize(true),
+    artist: req.body.artist.capitalize(true),
+    publisher: req.body.publisher.capitalize(true),
     volume: req.body.volume,
-    cover: req.body.cover,
+    cover: req.body.cover
   });
 
   newComic.save(error => {
