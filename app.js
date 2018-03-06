@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const index = require('./routes/index');
+const comics = require('./routes/comics');
 const users = require('./routes/users');
 
 //Initialize Express
@@ -34,7 +34,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/', index);
+app.use('/comics', comics);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
