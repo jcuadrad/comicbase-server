@@ -10,12 +10,17 @@ const mongoose = require('mongoose');
 const comics = require('./routes/comics');
 const users = require('./routes/users');
 
-//Initialize Express
+const dotenv = require('dotenv');
+
+// Initialize Express
 const app = express();
+
+// Configure Dotenv
+dotenv.config();
 
 // Connect Mongoose database
 mongoose.Promise = Promise;
-mongoose.connect('mongodb://localhost/mern-backend', {
+mongoose.connect(process.env.MONGODB_URI, {
   keepAlive: true,
   reconnectTries: Number.MAX_VALUE
 });
@@ -23,7 +28,7 @@ mongoose.connect('mongodb://localhost/mern-backend', {
 // Setup CORS
 app.use(cors({
   credentials: true,
-  origin: ['http://localhost:3006']
+  origin: [process.env.CLIENT_URL]
   })
 );
 
