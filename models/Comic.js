@@ -6,7 +6,10 @@ const comicSchema = new Schema({
     writer: String,
     artist: String,
     publisher: String,
-    volume: Number,
+    volume: {
+        number: Number,
+        name: String
+    },
     cover: String
 })
 

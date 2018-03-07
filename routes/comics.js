@@ -22,7 +22,10 @@ router.post('/', (req, res, next) => {
     writer: req.body.writer.capitalize(true),
     artist: req.body.artist.capitalize(true),
     publisher: req.body.publisher.capitalize(true),
-    volume: req.body.volume,
+    volume: {
+      number: req.body.volume.volumeNumber, 
+      name: req.body.volume.volumeName.capitalize(true)
+    },
     cover: req.body.cover
   });
 
